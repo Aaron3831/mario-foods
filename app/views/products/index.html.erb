@@ -1,0 +1,37 @@
+<h1 class="jumbotron">Welcome to Mario's Specialty Food Products</h1>
+<div class="container">
+
+
+  <h2 class="well">Our Most Reviewed Product:</h2>
+  <ul class="list-group">
+    <% @highlyReviewed.each do |most| %>
+    <li class="list-group-item"><%= most.name %></li>
+    <% end %>
+  </ul>
+
+
+  <h2 class="well">Recently Added Products:</h2>
+  <ul class="list-group">
+    <% @recentProducts.each do |recent| %>
+    <li class="list-group-item"><%= recent.name %></li>
+    <% end %>
+  </ul>
+
+  <h2 class="well">Made in the United States of America</h2>
+  <ul class="list-group">
+    <% @local.each do |usa| %>
+    <li class="list-group-item"><%= usa.name %></li>
+    <% end %>
+  </ul>
+
+  <h1>All Products</h1>
+
+  <hr>
+  <ul>
+    <% @products.each do |product| %>
+    <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add product", new_product_path(@product), :class => "btn btn-success" %>
+</div>
