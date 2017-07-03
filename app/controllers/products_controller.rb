@@ -2,13 +2,12 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @recentProducts = Product.three_most_recent
-    @highlyReviewed = Product.most_reviews
+    @mostReviewed = Product.most_reviews
     @local = Product.local
   end
 
   def show
     @product = Product.find(params[:id])
-    render :show
   end
 
   def new
